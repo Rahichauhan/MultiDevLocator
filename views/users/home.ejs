@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcomeee</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Belanosima&family=Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+
+<!-- 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/> -->
+</head>
+<body>
+    <!-- <h1>Welcome <%= user.name %> to our website</h1> -->
+    <nav class="navbar h-nav">
+        <ul class="nav-list v-class">
+          <li>
+            <a href="#home"> <strong>Home</strong> </a>
+          </li>
+          <li>
+            <a href="#about"> <strong>About</strong> </a>
+          </li>
+          <li>
+            <a href="#contact"> <strong>Contact Us</strong></a>
+          </li>
+          <li>
+            <a href="/edit"> <strong>Edit</strong></a>
+          </li>
+        </ul>
+        <div class="logo v-class ">
+          <div class="logo"><img src="logologin.png" alt="logo" /></div>
+        </div>
+        <div class="burger">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div> 
+        </div>
+      </nav>
+  
+      <section class="background firstsection">
+        <div class="firsthalf">
+          <h1 class="primary">FindEyeWear</h1>
+          <p>Welcome <%=user.name%>  to FindEyeWear!!</p>
+          <p>Here you can find your eyewear from anywhere and everywhere.</p>
+        </div>
+      </section>
+  
+      <section id="home" class="text">
+        <div class="photo">
+          <img src="homephoto.jpg" alt="" />
+        </div>
+        <div class="que">
+          <h1>Can't find your spectacle?</h1>
+        </div>
+        <div class="text-here">
+          <p>Trace and locate your lost specs with ease</p>
+        </div>
+        <div class="btn-y">
+          <!-- <button class="btn">Find my specs</button> -->
+          <!-- <button onclick="getLocation()">Find my spects</button> -->
+          <!-- <button onclick="window.location.href='/map.ejs'">Find my spects</button> -->
+          <a href="/map">
+            <button >Find my spects</button>
+          </a> 
+
+
+
+        </div>
+      </section>
+      <hr />
+      <section id="contact" class="contact">
+        <h1 class="text-align">Contact Us</h1>
+        <div class="form">
+          <input
+            class="form-input"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+          />
+          <input
+            class="form-input"
+            type="number"
+            name="phone"
+            id="number"
+            placeholder="Enter your phone number"
+          />
+          <input
+            class="form-input"
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+          />
+          <textarea
+            class="form-input"
+            name="textarea"
+            id="name"
+            cols="30"
+            rows="10"
+            placeholder=" Extract your concern here"
+          ></textarea>
+          <button class="btn-dark">Submit</button>
+        </div>
+      </section>
+  <mid id="about" class="about-section">
+    <div class="container">
+      <h2>About Us</h2>
+      <p1>Welcome to our FindEyeWear website!</p1>
+      <p>At FindEyeWear, we are dedicated to providing innovative solutions to help you keep track of your eyewear.</p>
+      <p>Our FindEyeWear are equipped with advanced tracking features that allow you to easily locate your glasses when they go missing. </p>
+      <p>Using a smartphone app, you can track the last known location of your glasses, receive notifications if they are left behind, and even activate an audible alarm to help you locate them quickly.</p>
+      <p>With our FindEyeWear, you can say goodbye to the stress of misplacing your eyewear. Whether you're at home, in the office, or on the go, our glasses will ensure that you never lose sight of your favorite pair.</p>
+     
+      <p>Thank you for choosing Anti-Lost Glasses!</p>
+    </div>
+  </mid>
+      <footer>
+        <p class="text-footer">
+        copyright &copy; 2027-All rights reserved
+      </p>
+      </footer>
+      
+
+
+    <!-- <button onclick="getLocation()">click here to find your device</button> -->
+  <!-- <div id="map" style="width: 100%; height: 900px;"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+  <script>
+    
+function getLocation() {
+
+if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(showPosition, handleLocationError);
+} else {
+    handleLocationError("Geolocation is not supported by this browser.");
+}
+}
+
+function showPosition(position) {
+var LeafIcon = L.Icon.extend({
+    options: {
+        shadowUrl: 'location-shadow.png',
+        iconSize: [65, 95],
+        shadowSize: [50, 64],
+        iconAnchor: [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor: [-3, -76]
+    },
+});
+var greenIcon = new LeafIcon({ iconUrl: 'location-logo5.png' }),
+    redIcon = new LeafIcon({ iconUrl: 'location-logo6.png' });
+
+L.icon = function (options) {
+    return new L.Icon(options);
+};
+
+
+var map = L.map("map").setView([position.coords.latitude, position.coords.longitude], 13);
+L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+}).addTo(map);
+// L.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
+//     .bindPopup('My location')
+//     .openPopup();
+
+L.marker([position.coords.latitude, position.coords.longitude], { icon: redIcon }).addTo(map).bindPopup("My location")
+    .openPopup();
+
+
+// L.marker([32.5347, 74.9319]).addTo(map) 
+// .bindPopup('My location')
+//     .openPopup();
+L.marker([32.5347, 74.9319], { icon: greenIcon }).addTo(map).bindPopup("Your device is here")
+    .openPopup();
+
+
+}
+
+function handleLocationError(error) {
+console.log(error);
+}
+
+  </script> -->
+  <a href="/edit">Edit</a>
+  <a href="/logout">Logout</a>
+  <script src="resp.js"></script>
+ 
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+  }
+
+  html{
+    scroll-behavior: smooth;
+  }
+  
+  .navbar {
+    display: flex;
+    background-color: #121111;
+    /* top: 0;
+    position: sticky; */
+    
+    /* background: url('homebg3.avif');*/
+    /* background-size: cover; */
+    /* background-blend-mode: darken; */
+  }
+
+  .nav-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    position: sticky;
+  }
+  .nav-list li {
+    list-style: none;
+    padding: 26px 30px;
+  }
+  .nav-list a {
+    color: white;
+    text-decoration: none;
+    padding: 3px 3px;
+    margin: 5px 5px;
+    cursor: pointer;
+    font-size: 22px;
+    font-family: "Belanosima", sans-serif;
+  }
+  .nav-list li a:hover,
+  .nav-list li a.active {
+    color: grey;
+    text-decoration: underline;
+  }
+  .logo {
+    position: absolute;
+  }
+  .background {
+    background: rgba(0, 0, 0, 0.7) url("homebg3.jpg");
+    background-size: cover;
+    opacity: 0.93;
+    z-index: -1;
+    /* height: 650px; */
+    /* background-blend-mode: darken; */
+  }
+  .firstsection {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: first baseline;
+  }
+  .firstsection h1 {
+    font-size: 68px;
+    padding: 117px;
+  }
+
+  .firsthalf h1 {
+    height: 9px;
+    color: white;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+  }
+  /* .primary{
+          font-size: 4rem;
+          padding: 12px;
+          margin: 12px;
+      } */
+  .firsthalf p {
+    color: white;
+    text-align: center;
+    font-family: "Belanosima", sans-serif;
+    font-size: 32px;
+    padding: 23px;
+  }
+
+  .text {
+    display: flex;
+    height: 600px;
+    max-width: 1113px;
+  }
+  .photo {
+    /* padding: 106px 104px; */
+    border: 4px solid black;
+    top: 906px;
+    position: absolute;
+    left: 145px;
+  }
+
+  .que {
+    top: 958px;
+    left: 888px;
+    position: absolute;
+    padding: 12px 9px;
+    font-size: 30px;
+  }
+
+  .text-here {
+    font-size: 25px;
+    top: 1076px;
+    left: 941px;
+    position: absolute;
+  }
+  .btn-y {
+    position: absolute;
+    top: 1173px;
+    left: 1010px;
+  }
+
+  .btn-y button {
+    padding: 12px 40px;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #fdd037;
+    border-radius: 10px;
+    /* font-family: 'Heebo', sans-serif; */
+    font-family: "Poppins", sans-serif;
+  }
+  .text-footer{
+    background: #121111;
+    text-align: center;
+    padding: 30px;
+    font-family: "Belanosima", sans-serif;
+    color: white;
+  }
+  /* .about-section{
+    background-color: #9d1f1f;
+  }*/
+  .container{ 
+    padding: 6px;
+    background-color: white;
+    position: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } 
+  .container h2{
+     display: flex;
+    justify-content: center; 
+    font-size: 30px;
+    font-family: "Belanosima", sans-serif;
+    padding: 60px 0px 20px 0px;
+  }
+  .container p1{
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-family: "Poppins", sans-serif;
+
+  }
+  .container p{
+    
+    padding: 5px 100px;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    text-align: center;
+  }
+  .contact {
+    background-color: rgb(219, 217, 214);
+    height: 700px;
+  }
+  .form {
+    max-width: 500px;
+    margin: auto;
+  }
+  .form-input {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    padding: 5px 3px;
+    width: 100%;
+    font-size: 20px;
+    border: 2px solid grey;
+    border-radius: 6px;
+  }
+
+  .text-align {
+    text-align: center;
+    padding: 30px;
+    font-family: "Belanosima", sans-serif;
+  }
+  .btn-dark {
+    padding: 8px 35px;
+    position: absolute;
+    left: 533px;
+    border: 2px solid grey;
+    border-radius: 7px;
+  }
+  .burger{
+    display: none;
+     position: absolute;
+     cursor: pointer;
+     right: 5%;
+     top: 15px;
+  }
+  .line{
+     width: 33px;
+     background-color: white;
+     height: 4px;
+     margin: 5px 5px;
+  }
+  
+
+   @media (min-width:1306px) and (max-width: 1496px) {
+    .photo {
+      /* padding: 106px 104px; */
+      border: 4px solid black;
+      top: 482px;
+      left: 86px;
+  }
+
+  .que {
+    top: 520px;
+    left: 808px;
+    padding: 12px 9px;
+    font-size: 30px;
+}
+.text-here {
+  font-size: 30px;
+  top: 656px;
+  left: 821px;
+}
+.btn-y {
+  top: 770px;
+  left: 950px;
+}
+  }
+
+   @media (min-width:1200px) and (max-width: 1306px) {
+    .photo img{
+      width: 559px;
+    }
+    .photo {
+      /* padding: 106px 104px; */
+      border: 4px solid black;
+      top: 533px;
+      left: 91px;
+  }
+    .btn-y {
+      top: 796px;
+      left: 804px;
+    }
+    .que {
+      top: 579px;
+      left: 778px;
+      padding: 12px 9px;
+      font-size: 30px;
+    }
+    .text-here {
+      font-size: 25px;
+      top: 728px;
+      left: 735px;
+    }
+  }
+  
+  @media(min-width:1190px) and (max-width: 1200px) {
+    .photo img{
+      width: 559px;
+    }
+    
+    .que {
+      top: 748px;
+      left: 745px;
+      padding: 12px 9px;
+      font-size: 25px;
+    }
+    .text-here {
+      font-size: 25px;
+      top: 898px;
+      left: 722px;
+
+    }
+    .btn {
+      padding: 12px 30px;
+      font-size: 13px;
+      cursor: pointer;
+      background-color: #fdd037;
+      border-radius: 5px;
+      font-family: "Poppins", sans-serif;
+    }
+    .btn-y {
+      top: 1012px;
+      left: 803px;
+    }
+  }
+  @media (min-width:942px) and (max-width: 1190px) {
+    .photo img{
+      width: 512px;
+    }
+    .photo {
+      border: 4px solid black;
+      top: 526px;
+      left: 40px;
+  }
+  .que {
+    top: 532px;
+    left: 661px;
+    padding: 12px 9px;
+    font-size: 28px;
+}
+.text-here {
+  font-size: 25px;
+  top: 665px;
+  left: 675px;
+}
+.btn-y {
+  top: 762px;
+  left: 672px;
+}
+  }
+  
+  @media (min-width:768px) and (max-width: 942px) {
+    .photo img {
+      width: 450px;
+    }
+    .text{
+      height: 527px;
+    }
+    .firstsection {
+      display: flex;
+      height: 150vh;
+      justify-content: center;
+      align-items: first baseline;
+  }
+    .photo {
+      /* padding: 106px 104px; */
+      border: 4px solid black;
+      top: 766px;
+      left: 43px;
+  }
+    .que {
+      top: 756px;
+      left: 505px;
+      padding: 12px 9px;
+      font-size: 25px;
+    }
+    .text-here {
+      font-size: 25px;
+      top: 879px;
+      left: 517px;
+  }
+    .btn-y {
+      top: 975px;
+      left: 517px;
+    }
+  } 
+
+  /* Default styles */
+
+/* Styles for screens up to 768px wide */
+
+
+/* Styles for screens between 768px and 992px wide */
+
+
+/* Styles for screens between 992px and 1200px wide */
+/* @media only screen and (max-width: 1200px) {
+  /* Write your responsive CSS styles here */
+  /* .photo img{
+    width: 375px;
+  }
+  .photo {
+    border: 4px solid black;
+    top: 871px;
+    left: 19px;
+}
+.que {
+  top: 869px;
+  left: 210px;
+  padding: 12px 9px;
+  font-size: 10px;
+}
+.text-here {
+  font-size: 7px;
+  top: 939px;
+  left: 218px;
+}.btn-y {
+  top: 955px;
+  left: 224px;
+}
+}  */
+@media (min-width:685px) and (max-width: 768px) {
+  /* Write your responsive CSS styles here */
+  .burger{
+    display: block;
+  }
+  .h-nav{
+    height: 72px;
+  }
+  .v-class{
+    opacity: 0;
+  }
+  .nav-list{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar{
+    /* height: 330px; */
+    flex-direction: column;
+    transition: all 0.7s ease-out ;
+  }
+  .logo{
+    flex-direction: column;
+    /* justify-content: center;
+    flex-direction: column-reverse; */
+  }
+  .firstsection {
+    display: flex;
+    height: 150vh;
+    justify-content: center;
+    align-items: first baseline;
+}
+  .photo img{
+    width: 404px;
+  }
+  .photo {
+    border: 4px solid black;
+    top: 741px;
+    left: 31px;
+}
+.que {
+  top: 743px;
+  left: 478px;
+  padding: 12px 9px;
+  font-size: 20px;
+}
+.text-here {
+  font-size: 20px;
+  top: 861px;
+  left: 483px;
+}
+.btn {
+  padding: 11px 22px;
+  font-size: 10px;
+  cursor: pointer;
+  background-color: #fdd037;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+}
+.btn-y {
+  top: 934px;
+  left: 524px;
+}
+}
+@media (max-width: 685px) {
+  /* Write your responsive CSS styles here */
+  .burger{
+    display: block;
+  } 
+  .h-nav{
+    height: 72px;
+  }
+  .v-class{
+    opacity: 0;
+  }
+  .nav-list{
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
+  }
+  .navbar{
+    /* height: 330px; */
+    flex-direction: column;
+    transition: all 0.7s ease-out ;
+
+  }
+  .logo{
+    flex-direction: column;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  .firstsection {
+    display: flex;
+    height: 112vh;
+    justify-content: center;
+    align-items: first baseline;
+}
+  .photo img{
+    width: 370px;
+}
+  .photo {
+    border: 4px solid black;
+    top: 571px;
+    left: 31px;
+}
+.text {
+  display: flex;
+  height: 400px;
+  max-width: 1113px;
+}
+.que {
+  top: 571px;
+  left: 428px;
+  padding: 12px 9px;
+  font-size: 20px;
+}
+.text-here {
+  font-size: 20px;
+  top: 681px;
+  left: 437px;
+}
+.btn-y {
+  top: 764px;
+  left: 454px;
+}
+.btn {
+  padding: 11px 22px;
+  font-size: 10px;
+  cursor: pointer;
+  background-color: #fdd037;
+  border-radius: 5px;
+  font-family: "Poppins", sans-serif;
+}
+.form-input {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 23px;
+  padding: 0px -20px;
+  width: 60%;
+  font-size: 20px;
+  border: 2px solid grey;
+  border-radius: 6px;
+}
+.btn-dark {
+  padding: 8px 35px;
+  left: 76px;
+  border: 2px solid grey;
+  border-radius: 7px;
+}
+.primary{
+  font-size: 35px;
+}
+.firsthalf p {
+  color: white;
+  text-align: center;
+  font-family: "Belanosima", sans-serif;
+  font-size: 22px;
+  padding: 15px;
+}
+}
+
+
+</style>
+</body>
+</html>

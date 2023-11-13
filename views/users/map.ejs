@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+</head>
+<body>
+    <div id="map" style="width: 100%; height: 900px;"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+    <script>
+  if (navigator.geolocation) {
+  
+      navigator.geolocation.getCurrentPosition(showPosition, handleLocationError);
+  } else {
+      handleLocationError("Geolocation is not supported by this browser.");
+  }
+
+  
+  function showPosition(position) {
+  var LeafIcon = L.Icon.extend({
+      options: {
+          shadowUrl: 'location-shadow.png',
+          iconSize: [65, 95],
+          shadowSize: [50, 64],
+          iconAnchor: [22, 94],
+          shadowAnchor: [4, 62],
+          popupAnchor: [-3, -76]
+      },
+  });
+  var greenIcon = new LeafIcon({ iconUrl: 'location-logo5.png' }),
+      redIcon = new LeafIcon({ iconUrl: 'location-logo6.png' });
+  
+  L.icon = function (options) {
+      return new L.Icon(options);
+  };
+  
+  
+  var map = L.map("map").setView([position.coords.latitude, position.coords.longitude], 13);
+  L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+      maxZoom: 20,
+      subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+  }).addTo(map);
+  // L.marker([position.coords.latitude, position.coords.longitude]).addTo(map)
+  //     .bindPopup('My location')
+  //     .openPopup();
+  
+  L.marker([position.coords.latitude, position.coords.longitude], { icon: redIcon }).addTo(map).bindPopup("My location")
+      .openPopup();
+  
+  
+  // L.marker([32.5347, 74.9319]).addTo(map) 
+  // .bindPopup('My location')
+  //     .openPopup();
+  L.marker([21.0955, 79.1083], { icon: greenIcon }).addTo(map).bindPopup("Your device is here")
+      .openPopup();
+  
+  
+  }
+  
+  function handleLocationError(error) {
+  console.log(error);
+  }
+  
+    </script>
+</body>
+</html>
